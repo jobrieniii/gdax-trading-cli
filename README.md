@@ -3,11 +3,11 @@
 Monitors a single crypto currency trading stream on the [GDAX](https://www.gdax.com) and initiates **buy / sell** orders when trading price hits thresholds above and below a base price.
 
 > NOTE
-
+>
 > This was created for fun and the algorithm is not super fancy.
-
+>
 > It makes no real money but is fun to watch.
-
+>
 > It is also fun to walk away from the computer and know your crypto is being bought / sold by the computer.
 
 ## how is works in a nutshell
