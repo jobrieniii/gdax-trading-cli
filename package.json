@@ -1,0 +1,17 @@
+{
+  "name": "pe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.4.1",
+    "gdax": "^0.4.2",
+    "s3": "^4.4.0",
+    "sleep": "^5.1.1"
+  }
+}
