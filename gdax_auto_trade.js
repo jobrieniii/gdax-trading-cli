@@ -3,6 +3,7 @@ var Gdax = require('gdax');
 var sleep = require('sleep');
 
 // COMAND LINE ARGS
+
 configFile = process.argv[2];
 transactionMode = process.argv[3];
 productId = process.argv[4];
@@ -63,7 +64,7 @@ var config = require(configFile);
 var gdaxAuthentication = config.gdax;
 
 // INIT GDAX CLIENT ENDPOINTS
-var publicClient = new Gdax.PublicClient(gdaxAuthentication.productId, gdaxAuthentication.apiURI);
+var publicClient = new Gdax.PublicClient(productId, gdaxAuthentication.apiURI);
 var authedClient = new Gdax.AuthenticatedClient(gdaxAuthentication.key, gdaxAuthentication.b64secret, gdaxAuthentication.passphrase, gdaxAuthentication.apiURI);
 var websocket = new Gdax.WebsocketClient(gdaxAuthentication.productId, null, gdaxAuthentication.authentication, gdaxAuthentication.apiURI);
 
@@ -234,6 +235,7 @@ async.series([
       if (basePrice == null) {
 
         publicClient.getProductTicker(function(err, response, data) {
+          console.log(data);
           basePrice = data.price;
 
           if (basePrice == null) {
