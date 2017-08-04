@@ -66,7 +66,7 @@ var gdaxAuthentication = config.gdax;
 // INIT GDAX CLIENT ENDPOINTS
 var publicClient = new Gdax.PublicClient(productId, gdaxAuthentication.apiURI);
 var authedClient = new Gdax.AuthenticatedClient(gdaxAuthentication.key, gdaxAuthentication.b64secret, gdaxAuthentication.passphrase, gdaxAuthentication.apiURI);
-var websocket = new Gdax.WebsocketClient(gdaxAuthentication.productId, null, gdaxAuthentication.authentication, gdaxAuthentication.apiURI);
+var websocket = new Gdax.WebsocketClient(productId, null, gdaxAuthentication.authentication, gdaxAuthentication.apiURI);
 
 // BUY
 var buy = function (price, callback) {
