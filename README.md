@@ -3,11 +3,11 @@
 Monitors a single crypto currency trading stream on the [GDAX](https://www.gdax.com) and initiates **buy / sell** orders when trading price hits thresholds above and below a base price.
 
 > NOTE
->
+
 > This was created for fun and the algorithm is not super fancy.
->
+
 > It makes no real money but is fun to watch.
->
+
 > It is also fun to walk away from the computer and know your crypto is being bought / sold by the computer.
 
 ## how is works in a nutshell
@@ -24,8 +24,8 @@ Monitors a single crypto currency trading stream on the [GDAX](https://www.gdax.
 	|---------------|----------------|
 	| **buy**  |   If last trading price less than **percentageSwing** from current **basePrice**, a market **buy** transaction is initiated using the [Order API](https://docs.gdax.com/#orders) with a size of **ante**<br /><br />The **transactionMode**  is then set to `pending-buy`|
 	| **sell**  |   If last trading price greater than **percentageSwing** from current **basePrice**, a market **buy** transaction is initiated using the [Orders API resource](https://docs.gdax.com/#orders) with a size of **ante**<br /><br />The **transactionMode** is then set to `pending-sell`   |
-	| **pending-buy**    |   While in this mode, once each transaction is received from the gdax websocket feed, it checks to see if the order has been filled using the [Fills API resource](https://docs.gdax.com/#fills)<br /><br />Once the buy order has been filled the **transactionMode**	is changed to `sell` |
-	| **pending-sell**    |   While in this mode, once each transaction is received from the gdax websocket feed, it checks to see if the order has been filled using the [Fills API resource](https://docs.gdax.com/#fills)<br /><br />Once the sell order has been filled the **transactionMode**	is changed to `buy`   |
+	| **pending-buy**    |   While in this mode, once each transaction is received from the gdax websocket feed, it checks to see if the order has been filled using the [Fills API resource](https://docs.gdax.com/#fills)<br /><br />Once the buy order has been filled the **transactionMode**	is changed to `sell` and the **basePrice** is set to the current price |
+	| **pending-sell**    |   While in this mode, once each transaction is received from the gdax websocket feed, it checks to see if the order has been filled using the [Fills API resource](https://docs.gdax.com/#fills)<br /><br />Once the sell order has been filled the **transactionMode**	is changed to `buy` and the **basePrice** is set to the current price  |
 
 	> The script also tracks the slope of the each trade to determine if the price is going up / down (based upon last trade).  In addition to the price delta it will also ensure the slope has at least shifted in prevent a sell / buy if the market is still moving.  This is way too sensitive in reality b/c it is only looking back one price point.
 
