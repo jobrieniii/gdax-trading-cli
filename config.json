@@ -1,0 +1,8 @@
+{
+  "gdax": {
+    "apiURI": "https://api.gdax.com",
+    "key": "xxx",
+    "b64secret": "xxx",
+    "passphrase": "xxx"
+  }
+}
